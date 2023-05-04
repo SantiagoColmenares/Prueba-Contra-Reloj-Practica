@@ -8,6 +8,7 @@
     <script src="js/jquery-3.6.4.js"></script>
     <script src="js/bootstrap/bootstrap.min.js" defer></script>
     <link rel="stylesheet" href="css/style.css">
+    <script src="service/customer-service.js" type="module" defer></script>
     <title>Document</title>
 </head>
 <body>
@@ -31,20 +32,31 @@
         </div>
       </nav>
     <main>
-        <div class="container mt-2">
-            <h3>Gestor de Ventas</h3>
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Registrar</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Listar Ventas</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Buscar</a>
-                </li>
-              </ul>
+      <div class="container mt-2">
+        <h3>Gestor de Ventas</h3>
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link tabOpcion" href="#" data-verocultar='["#reg",["#listar","#buscar"]]'>Registrar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link tabOpcion" href="#" data-verocultar='["#listar",["#reg","#buscar"]]'>Listar Clientes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link tabOpcion" href="#" data-verocultar='["#buscar",["#listar","#reg"]]'>Buscar</a>
+          </li>
+        </ul>
+      </div>
+      <div class="container mt-3">
+        <div id="reg" style="display: none;">
+          <h1>Registro Clientes</h1>
         </div>
+        <div id="listar" style="display: none;">
+          <h1>Listado Clientes</h1>
+        </div>
+        <div id="buscar" style="display: none;">
+          <h1>Buscador Clientes</h1>
+        </div>
+      </div>
     </main>
     <footer></footer>
 

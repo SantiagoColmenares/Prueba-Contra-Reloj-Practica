@@ -55,19 +55,19 @@ function saveCustomer(){
 }
 function VerOcultar(divsVisibles){
     console.log(divsVisibles);
-
 }
-
-refListar.addEventListener("click", getCustomers);
-refRegistro.addEventListener("click", (e) =>{
-    VerOcultar(['#reg',['#listar','#buscar']]);
-    e.preventDefault();
-    e.stopImmediatePropagation();
-});
 document.querySelectorAll('.tabOpcion').forEach((val,id) =>{
     val.addEventListener("click", (e) =>{
         let datos = JSON.parse(e.target.dataset.verocultar);
-        
+        console.log(datos);
+        let cardVer = document.querySelector(datos[0]);
+        cardVer.style.display = 'block';
+        datos[1].forEach(card => {
+            let cardActual = document.querySelector(card);
+            cardActual.style.display = 'none';
+        })
+        e.stopImmediatePropagation();
+        e.preventDefault();
     })
 });
 
