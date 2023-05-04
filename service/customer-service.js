@@ -1,4 +1,9 @@
 import CustomerModel from "../models/customer-model.js";
+const frmRegistro = document.querySelector('#frmData')
+const inputFrm = document.forms['frmData']; 
+const allBtn = document.querySelectorAll('.btn')
+
+
 
 const URL_API = "https://645284a6bce0b0a0f749221d.mockapi.io" 
 const refListar = document.querySelector('#listar');
@@ -53,14 +58,17 @@ function saveCustomer(){
     CustomerModel.fechaNacimiento = '1980-03-24';
     postCustomer(CustomerModel);
 }
-function VerOcultar(divsVisibles){
+/* function VerOcultar(divsVisibles){
     console.log(divsVisibles);
-}
+} */
 document.querySelectorAll('.tabOpcion').forEach((val,id) =>{
     val.addEventListener("click", (e) =>{
         let datos = JSON.parse(e.target.dataset.verocultar);
-        console.log(datos);
         let cardVer = document.querySelector(datos[0]);
+        if(cardVer.classList == 'btn-primary'){
+
+
+        }
         cardVer.style.display = 'block';
         datos[1].forEach(card => {
             let cardActual = document.querySelector(card);
@@ -74,3 +82,48 @@ document.querySelectorAll('.tabOpcion').forEach((val,id) =>{
 function viewDataHtml(dataCustomer){
     console.log(dataCustomer);
 }
+
+document.querySelector('#btnNuevo').addEventListener("click", (e) =>{
+    inputFrm.querySelectorAll('.form-control').forEach((e) =>{
+        e.value = '';
+        if (e.name == 'createdAt'){
+            e.valueAsDate = new Date();
+            e.disabled = true;
+        }
+    })
+    document.querySelectorAll('.btn').forEach((element) =>{
+        element.disabled = true;
+        if((element.id !='btnGuardar') && (element.id != 'btnCancelar')){
+            element.classList.add('disabled');
+            
+        } 
+    })
+
+    document.querySelectorAll('.btn').forEach((element) =>{
+        element.disabled = true;
+        if((element.id !='btnGuardar')){
+            element.classList.add('disabled');
+            
+        } 
+    })
+})
+
+document.querySelector('#btnGuardar').addEventListener("click", (e) =>{
+    const datos = Object.fromEntries(new FormData(frmRegistro).entries());
+    postCustomer(datos);
+})
+
+/* function ActivarBtn(){
+    allBtn.addEventListener("click", (e) => {
+        switch (
+            
+        ) {
+            case value:
+                
+                break;
+        
+            default:
+                break;
+        }
+    })
+} */

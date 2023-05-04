@@ -50,64 +50,66 @@
       </ul>
     </div>
     <div class="container mt-3">
-      <div id="reg" style="display: none;">
-        <h1>Registro Clientes</h1>
-      </div>
-      <div id="listar" style="display: none;">
-        <h1>Listado Clientes</h1>
-      </div>
-      <div id="buscar" style="display: none;">
-        <h1>Buscador Clientes</h1>
-      </div>
-    </div>
-
-    <!-- Inicio formularios -->
-
-    <div class="container mt-3">
-      <form class="row g-3">
-        <div class="col-md-6">
-          <label for="inputEmail4" class="form-label">Email</label>
-          <input type="email" class="form-control" id="inputEmail4">
-        </div>
-        <div class="col-md-6">
-          <label for="inputPassword4" class="form-label">Password</label>
-          <input type="password" class="form-control" id="inputPassword4">
-        </div>
-        <div class="col-12">
-          <label for="inputAddress" class="form-label">Address</label>
-          <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-        </div>
-        <div class="col-12">
-          <label for="inputAddress2" class="form-label">Address 2</label>
-          <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-        </div>
-        <div class="col-md-6">
-          <label for="inputCity" class="form-label">City</label>
-          <input type="text" class="form-control" id="inputCity">
-        </div>
-        <div class="col-md-4">
-          <label for="inputState" class="form-label">State</label>
-          <select id="inputState" class="form-select">
-            <option selected>Choose...</option>
-            <option>...</option>
-          </select>
-        </div>
-        <div class="col-md-2">
-          <label for="inputZip" class="form-label">Zip</label>
-          <input type="text" class="form-control" id="inputZip">
-        </div>
-        <div class="col-12">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck">
-            <label class="form-check-label" for="gridCheck">
-              Check me out
-            </label>
+      <div id="reg" style="display: display;">
+        <div class="container">
+          <div id="reg" style="display: display;">
+            <div class="card">
+              <h5 class="card-header">Registro de clientes</h5>
+              <div class="card-body">
+                <div class="container">
+                  <div class="row g-3">
+                    <div class="col-12">
+                      <form id="frmData">
+                        <div class="row g-3">
+                          <div class="col-4">
+                            <label for="createdAt" class="form-label">Fecha registro</label>
+                            <input type="date" class="form-control" id="createdAt" name="createdAt">
+                          </div>
+                          <div class="col-4">
+                            <label for="nombres" class="form-label">Nombre del Cliente</label>
+                            <input type="text" class="form-control" id="nombres" name="nombres">
+                          </div>
+                          <div class="col-4">
+                            <label for="apellidos" class="form-label">Apellidos</label>
+                            <input type="text" class="form-control" id="apellidos" name="apellidos">
+                          </div>
+                        </div>
+                        <div class="row g-3">
+                          <div class="col-4">
+                            <label for="email" class="form-label">Email cliente</label>
+                            <input type="email" class="form-control" id="email" name="email">
+                          </div>
+                          <div class="col-4">
+                            <label for="nroMovil" class="form-label">Nro Movil</label>
+                            <input type="text" class="form-control" id="nroMovil" name="nroMovil">
+                          </div>
+                          <div class="col-4">
+                            <label for="fechaNacimiento" class="form-label">Fecha Nacimiento</label>
+                            <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento">
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <div class="container mt-4 text-center">
+                  <a href="#" class="btn btn-primary" id="btnNuevo">Nuevo cliente</a>
+                  <a href="#" class="btn btn-danger" id="btnCancelar">Cancelar registro</a>
+                  <a href="#" class="btn btn-success" id="btnGuardar">Guardar cliente</a>
+                  <a href="#" class="btn btn-warning" id="btnEditar">Editar cliente</a>
+                  <a href="#" class="btn btn-danger" id="btnEliminar">Eliminar cliente</a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="col-12">
-          <button type="submit" class="btn btn-primary">Sign in</button>
+        <div id="listar" style="display: none;">
+          <h1>Listado Clientes</h1>
         </div>
-      </form>
+        <div id="buscar" style="display: none;">
+          <h1>Buscador Clientes</h1>
+        </div>
+      </div>
     </div>
   </main>
   <footer></footer>
