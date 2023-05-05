@@ -2,7 +2,7 @@ import CustomerModel from "../models/customer-model.js";
 const frmRegistro = document.querySelector('#frmData')
 const inputFrm = document.forms['frmData']; 
 const botones = document.querySelectorAll('.btn')
-let idUser = 0;
+let idUser = 1;
 const URL_API = "https://645284a6bce0b0a0f749221d.mockapi.io/" 
 const refListar = document.querySelector('#listar');
 const myHeaders = new Headers({
@@ -19,6 +19,7 @@ const postCustomer = (datos) =>{
     ).then(res =>{
         return res.json()
     }).then(res =>{
+        idUser=res.id
         console.log(res);
     }).catch(err =>{
         console.log(err);
@@ -37,7 +38,7 @@ const putCustomer = (datos) =>{
         return res.json()
         
     }).then(res=>{
-       
+ 
         console.log(res);
     }).catch(err=>{
         console.log(err);

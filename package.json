@@ -1,0 +1,20 @@
+{
+  "name": "prueba-contra-reloj-practica",
+  "version": "1.0.0",
+  "description": "Practica por tiempo de la prueba",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SantiagoColmenaresCampus/Prueba-Contra-Reloj-Practica.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SantiagoColmenaresCampus/Prueba-Contra-Reloj-Practica/issues"
+  },
+  "homepage": "https://github.com/SantiagoColmenaresCampus/Prueba-Contra-Reloj-Practica#readme"
+}
