@@ -1,11 +1,9 @@
 import CustomerModel from "../models/customer-model.js";
 const frmRegistro = document.querySelector('#frmData')
 const inputFrm = document.forms['frmData']; 
-const allBtn = document.querySelectorAll('.btn')
-
-
-
-const URL_API = "https://645284a6bce0b0a0f749221d.mockapi.io" 
+const botones = document.querySelectorAll('.btn')
+let idUser = 0;
+const URL_API = "https://645284a6bce0b0a0f749221d.mockapi.io/" 
 const refListar = document.querySelector('#listar');
 const myHeaders = new Headers({
     "Content-Type": "application/json"
@@ -26,6 +24,42 @@ const postCustomer = (datos) =>{
         console.log(err);
     })
         
+
+}
+const putCustomer = (datos) =>{
+    fetch(`${URL_API}customers/${idUser}`,
+	{
+		method: "PUT",
+		headers: myHeaders,
+		body:JSON.stringify(datos)
+	}
+    ).then(res=>{
+        return res.json()
+        
+    }).then(res=>{
+       
+        console.log(res);
+    }).catch(err=>{
+        console.log(err);
+    })
+
+}
+const deleteCustomer = (datos) =>{
+    fetch(`${URL_API}customers/${idUser}`,
+	{
+		method: "DELETE",
+		headers: myHeaders,
+		body:JSON.stringify(datos)
+	}
+    ).then(res=>{
+        return res.json()
+        
+    }).then(res=>{
+       
+        console.log(res);
+    }).catch(err=>{
+        console.log(err);
+    })
 
 }
 
@@ -50,15 +84,15 @@ const getCustomers = async() => {
     }
 
 }
-function saveCustomer(){
+/* function saveCustomer(){
     CustomerModel.createdAt = '2023-02-02';
     CustomerModel.nombres = 'Campers 2023';
     CustomerModel.apellidos = 'xxxxx';
     CustomerModel.email = 'xxxxxx';
     CustomerModel.fechaNacimiento = '1980-03-24';
     postCustomer(CustomerModel);
-}
-/* function VerOcultar(divsVisibles){
+} 
+function VerOcultar(divsVisibles){
     console.log(divsVisibles);
 } */
 document.querySelectorAll('.tabOpcion').forEach((val,id) =>{
@@ -108,22 +142,35 @@ document.querySelector('#btnNuevo').addEventListener("click", (e) =>{
     })
 })
 
+
+document.querySelectorAll('.btn').forEach((e) =>{
+    e.addEventListener("click",(evento)=>{
+        let datos = JSON.parse(evento.target.dataset.activardesactiva);
+        let cardVer = document.querySelector(datos[0]);
+        datos[0].forEach(btnActivar =>{
+            let btndActual = document.querySelector(btnActivar);
+            btndActual.classList.toggle('disabled');
+        })
+        datos[1].forEach(btnActivar =>{
+            let btndActual = document.querySelector(btnActivar);
+            if (!(btndActual.classList.contains('disabled'))){
+                btndActual.classList.toggle('disabled');
+            }
+        })
+    })
+})
+
 document.querySelector('#btnGuardar').addEventListener("click", (e) =>{
     const datos = Object.fromEntries(new FormData(frmRegistro).entries());
     postCustomer(datos);
 })
 
-/* function ActivarBtn(){
-    allBtn.addEventListener("click", (e) => {
-        switch (
-            
-        ) {
-            case value:
-                
-                break;
-        
-            default:
-                break;
-        }
-    })
-} */
+ document.querySelector('#btnEditar').addEventListener("click", (e) =>{
+    const datos = Object.fromEntries(new FormData(frmRegistro).entries());
+    putCustomer(datos);
+})
+
+document.querySelector('#btnEliminar').addEventListener("click", (e) =>{
+    const datos = Object.fromEntries(new FormData(frmRegistro).entries());
+    deleteCustomer(datos)
+}) 

@@ -93,11 +93,11 @@
                   </div>
                 </div>
                 <div class="container mt-4 text-center">
-                  <a href="#" class="btn btn-primary" id="btnNuevo">Nuevo cliente</a>
-                  <a href="#" class="btn btn-danger" id="btnCancelar">Cancelar registro</a>
-                  <a href="#" class="btn btn-success" id="btnGuardar">Guardar cliente</a>
-                  <a href="#" class="btn btn-warning" id="btnEditar">Editar cliente</a>
-                  <a href="#" class="btn btn-danger" id="btnEliminar">Eliminar cliente</a>
+                  <a href="#" class="btn btn-primary" id="btnNuevo" id="btnNuevo" data-activardesactiva='[["#btnGuardar","#btnCancelar"],["#btnNuevo","#btnEditar","#btnEliminar"]]'>Nuevo cliente</a>
+                  <a href="#" class="btn btn-danger" id="btnCancelar" data-activardesactiva='[["#btnNuevo"],["#btnGuardar","#btnEditar","#btnEliminar","#btnCancelar"]]'>Cancelar registro</a>
+                  <a href="#" class="btn btn-success" id="btnGuardar" data-activardesactiva='[["#btnNuevo","#btnEditar","#btnEliminar"],["#btnCancelar","#btnGuardar"]]'>Guardar cliente</a>
+                  <a href="#" class="btn btn-warning" id="btnEditar" data-activardesactiva='[["#btnNuevo","#btnEditar"],["#btnCancelar","#btnEliminar","#btnGuardar"]]'>Editar cliente</a>
+                  <a href="#" class="btn btn-danger" id="btnEliminar" data-activardesactiva='[["#btnNuevo"],["#btnGuardar","#btnCancelar","#btnEditar","#btnEliminar"]]'>Eliminar cliente</a>
                 </div>
               </div>
             </div>
